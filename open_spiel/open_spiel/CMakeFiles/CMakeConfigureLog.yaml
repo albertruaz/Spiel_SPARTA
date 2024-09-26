@@ -1,0 +1,617 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:204 (message)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      The system is: Linux - 5.14.0-162.23.1.el9_1.x86_64 - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        /home/swkang/open_spiel/open_spiel/CMakeFiles/3.26.5/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is Clang, found in:
+        /home/swkang/open_spiel/open_spiel/CMakeFiles/3.26.5/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-tRhllY"
+      binary: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-tRhllY"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-tRhllY
+        
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a099e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a099e.dir/build.make CMakeFiles/cmTC_a099e.dir/build
+        gmake[1]: Entering directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-tRhllY'
+        Building C object CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang   -v -MD -MT CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        clang version 18.1.7 (https://github.com/conda-forge/clangdev-feedstock 1b91969d0c6b64ef555f9c04fc02d7758335f4b3)
+        Target: x86_64-conda-linux-gnu
+        Thread model: posix
+        InstalledDir: /home/swkang/miniconda3/envs/swkang_hanabi/bin
+        Configuration file: /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-clang.cfg
+        Found candidate GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0
+        Selected GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+         (in-process)
+         "/home/swkang/miniconda3/envs/swkang_hanabi/bin/clang-18" -cc1 -triple x86_64-conda-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-tRhllY -v -fcoverage-compilation-dir=/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-tRhllY -resource-dir /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18 -dependency-file CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/local/include -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/include -internal-externc-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/include -internal-externc-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 18.1.7 based upon LLVM 18.1.7 default target x86_64-conda-linux-gnu
+        ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/local/include"
+        ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/include"
+        ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include
+         /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include
+        End of search list.
+        Linking C executable cmTC_a099e
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a099e.dir/link.txt --verbose=1
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang  -v CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -o cmTC_a099e 
+        clang version 18.1.7 (https://github.com/conda-forge/clangdev-feedstock 1b91969d0c6b64ef555f9c04fc02d7758335f4b3)
+        Target: x86_64-conda-linux-gnu
+        Thread model: posix
+        InstalledDir: /home/swkang/miniconda3/envs/swkang_hanabi/bin
+        Configuration file: /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-clang.cfg
+        Found candidate GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0
+        Selected GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+         "/home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld" --sysroot=/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_a099e /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/Scrt1.o /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crti.o /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o -L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0 -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib/../lib64 -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64 -L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/lib -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crtn.o
+        gmake[1]: Leaving directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-tRhllY'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include]
+          add: [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include]
+        end of search list found
+        collapse include dir [/home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include]
+        collapse include dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include]
+        implicit include dirs: [/home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-tRhllY]
+        ignore line: []
+        ignore line: [Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a099e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a099e.dir/build.make CMakeFiles/cmTC_a099e.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-tRhllY']
+        ignore line: [Building C object CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/home/swkang/miniconda3/envs/swkang_hanabi/bin/clang   -v -MD -MT CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang version 18.1.7 (https://github.com/conda-forge/clangdev-feedstock 1b91969d0c6b64ef555f9c04fc02d7758335f4b3)]
+        ignore line: [Target: x86_64-conda-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /home/swkang/miniconda3/envs/swkang_hanabi/bin]
+        ignore line: [Configuration file: /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-clang.cfg]
+        ignore line: [Found candidate GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+        ignore line: [Selected GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [ (in-process)]
+        ignore line: [ "/home/swkang/miniconda3/envs/swkang_hanabi/bin/clang-18" -cc1 -triple x86_64-conda-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-tRhllY -v -fcoverage-compilation-dir=/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-tRhllY -resource-dir /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18 -dependency-file CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -sys-header-deps -isysroot /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/local/include -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/include -internal-externc-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/include -internal-externc-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang -cc1 version 18.1.7 based upon LLVM 18.1.7 default target x86_64-conda-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/local/include"]
+        ignore line: [ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include]
+        ignore line: [ /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking C executable cmTC_a099e]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a099e.dir/link.txt --verbose=1]
+        ignore line: [/home/swkang/miniconda3/envs/swkang_hanabi/bin/clang  -v CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -o cmTC_a099e ]
+        ignore line: [clang version 18.1.7 (https://github.com/conda-forge/clangdev-feedstock 1b91969d0c6b64ef555f9c04fc02d7758335f4b3)]
+        ignore line: [Target: x86_64-conda-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /home/swkang/miniconda3/envs/swkang_hanabi/bin]
+        ignore line: [Configuration file: /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-clang.cfg]
+        ignore line: [Found candidate GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+        ignore line: [Selected GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        link line: [ "/home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld" --sysroot=/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_a099e /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/Scrt1.o /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crti.o /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o -L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0 -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib/../lib64 -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64 -L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/lib -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crtn.o]
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld] ==> ignore
+          arg [--sysroot=/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_a099e] ==> ignore
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/Scrt1.o] ==> obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/Scrt1.o]
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crti.o] ==> obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crti.o]
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o] ==> obj [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib/../lib64] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib/../lib64]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/lib] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/lib]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib]
+          arg [CMakeFiles/cmTC_a099e.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--no-as-needed] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--no-as-needed] ==> ignore
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o] ==> obj [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o]
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crtn.o] ==> obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crtn.o]
+        collapse obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/Scrt1.o] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/Scrt1.o]
+        collapse obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crti.o] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/crti.o]
+        collapse obj [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o]
+        collapse obj [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o]
+        collapse obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crtn.o] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/crtn.o]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib/../lib64] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib64]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/lib] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/lib]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/Scrt1.o;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/crti.o;/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o;/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/crtn.o]
+        implicit dirs: [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib64;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/lib;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-8mYAnQ"
+      binary: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-8mYAnQ"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-8mYAnQ
+        
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_72949/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_72949.dir/build.make CMakeFiles/cmTC_72949.dir/build
+        gmake[1]: Entering directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-8mYAnQ'
+        Building CXX object CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang++   -v -MD -MT CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        clang version 18.1.7 (https://github.com/conda-forge/clangdev-feedstock 1b91969d0c6b64ef555f9c04fc02d7758335f4b3)
+        Target: x86_64-conda-linux-gnu
+        Thread model: posix
+        InstalledDir: /home/swkang/miniconda3/envs/swkang_hanabi/bin
+        Configuration file: /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-clang++.cfg
+        Found candidate GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0
+        Selected GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+         (in-process)
+         "/home/swkang/miniconda3/envs/swkang_hanabi/bin/clang-18" -cc1 -triple x86_64-conda-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-8mYAnQ -v -fcoverage-compilation-dir=/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-8mYAnQ -resource-dir /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18 -dependency-file CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++/ -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//x86_64-conda-linux-gnu -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//backward -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/local/include -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/include -internal-externc-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/include -internal-externc-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 18.1.7 based upon LLVM 18.1.7 default target x86_64-conda-linux-gnu
+        ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/local/include"
+        ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/include"
+        ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++
+         /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//x86_64-conda-linux-gnu
+         /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//backward
+         /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include
+         /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include
+        End of search list.
+        Linking CXX executable cmTC_72949
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_72949.dir/link.txt --verbose=1
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang++  -v CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_72949 
+        clang version 18.1.7 (https://github.com/conda-forge/clangdev-feedstock 1b91969d0c6b64ef555f9c04fc02d7758335f4b3)
+        Target: x86_64-conda-linux-gnu
+        Thread model: posix
+        InstalledDir: /home/swkang/miniconda3/envs/swkang_hanabi/bin
+        Configuration file: /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-clang++.cfg
+        Found candidate GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0
+        Selected GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+         "/home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld" --sysroot=/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_72949 /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/Scrt1.o /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crti.o /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o -L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0 -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib/../lib64 -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64 -L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/lib -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crtn.o
+        gmake[1]: Leaving directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-8mYAnQ'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++]
+          add: [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//x86_64-conda-linux-gnu]
+          add: [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//backward]
+          add: [/home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include]
+          add: [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include]
+        end of search list found
+        collapse include dir [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/include/c++]
+        collapse include dir [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//x86_64-conda-linux-gnu] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/include/c++/x86_64-conda-linux-gnu]
+        collapse include dir [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//backward] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/include/c++/backward]
+        collapse include dir [/home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include]
+        collapse include dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include]
+        implicit include dirs: [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/include/c++;/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/include/c++/x86_64-conda-linux-gnu;/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/include/c++/backward;/home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-8mYAnQ]
+        ignore line: []
+        ignore line: [Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_72949/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_72949.dir/build.make CMakeFiles/cmTC_72949.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-8mYAnQ']
+        ignore line: [Building CXX object CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/home/swkang/miniconda3/envs/swkang_hanabi/bin/clang++   -v -MD -MT CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang version 18.1.7 (https://github.com/conda-forge/clangdev-feedstock 1b91969d0c6b64ef555f9c04fc02d7758335f4b3)]
+        ignore line: [Target: x86_64-conda-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /home/swkang/miniconda3/envs/swkang_hanabi/bin]
+        ignore line: [Configuration file: /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-clang++.cfg]
+        ignore line: [Found candidate GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+        ignore line: [Selected GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [ (in-process)]
+        ignore line: [ "/home/swkang/miniconda3/envs/swkang_hanabi/bin/clang-18" -cc1 -triple x86_64-conda-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-8mYAnQ -v -fcoverage-compilation-dir=/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-8mYAnQ -resource-dir /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18 -dependency-file CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++/ -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//x86_64-conda-linux-gnu -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//backward -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/local/include -internal-isystem /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/include -internal-externc-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/include -internal-externc-isystem /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 18.1.7 based upon LLVM 18.1.7 default target x86_64-conda-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/local/include"]
+        ignore line: [ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++]
+        ignore line: [ /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//x86_64-conda-linux-gnu]
+        ignore line: [ /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../gcc/x86_64-conda-linux-gnu/14.1.0/include/c++//backward]
+        ignore line: [ /home/swkang/miniconda3/envs/swkang_hanabi/lib/clang/18/include]
+        ignore line: [ /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking CXX executable cmTC_72949]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_72949.dir/link.txt --verbose=1]
+        ignore line: [/home/swkang/miniconda3/envs/swkang_hanabi/bin/clang++  -v CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_72949 ]
+        ignore line: [clang version 18.1.7 (https://github.com/conda-forge/clangdev-feedstock 1b91969d0c6b64ef555f9c04fc02d7758335f4b3)]
+        ignore line: [Target: x86_64-conda-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /home/swkang/miniconda3/envs/swkang_hanabi/bin]
+        ignore line: [Configuration file: /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-clang++.cfg]
+        ignore line: [Found candidate GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+        ignore line: [Selected GCC installation: /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        link line: [ "/home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld" --sysroot=/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_72949 /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/Scrt1.o /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crti.o /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o -L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0 -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib/../lib64 -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64 -L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/lib -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib -L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o /home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crtn.o]
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld] ==> ignore
+          arg [--sysroot=/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_72949] ==> ignore
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/Scrt1.o] ==> obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/Scrt1.o]
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crti.o] ==> obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crti.o]
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o] ==> obj [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib/../lib64] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib/../lib64]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/lib] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/lib]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib]
+          arg [-L/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib] ==> dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib]
+          arg [CMakeFiles/cmTC_72949.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o] ==> obj [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o]
+          arg [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crtn.o] ==> obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crtn.o]
+        collapse obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/Scrt1.o] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/Scrt1.o]
+        collapse obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crti.o] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/crti.o]
+        collapse obj [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o]
+        collapse obj [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o]
+        collapse obj [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64/crtn.o] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/crtn.o]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib/../lib64] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib64]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib/../lib64] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/bin/../lib/gcc/x86_64-conda-linux-gnu/14.1.0/../../../../x86_64-conda-linux-gnu/lib] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/lib]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib]
+        collapse library dir [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib] ==> [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/Scrt1.o;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/crti.o;/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtbeginS.o;/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0/crtendS.o;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64/crtn.o]
+        implicit dirs: [/home/swkang/miniconda3/envs/swkang_hanabi/lib/gcc/x86_64-conda-linux-gnu/14.1.0;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib64;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib64;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/lib;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/lib;/home/swkang/miniconda3/envs/swkang_hanabi/x86_64-conda-linux-gnu/sysroot/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckCXXSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "abseil-cpp/CMake/AbseilDll.cmake:704 (check_cxx_source_compiles)"
+      - "abseil-cpp/CMakeLists.txt:75 (include)"
+    checks:
+      - "Performing Test ABSL_INTERNAL_AT_LEAST_CXX17"
+    directories:
+      source: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-N3YHgr"
+      binary: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-N3YHgr"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -O2 -Wno-everything -DOPEN_SPIEL_BUILD_WITH_PYTHON -DOPEN_SPIEL_ENABLE_JAX -DOPEN_SPIEL_ENABLE_PYTORCH -DOPEN_SPIEL_ENABLE_TENSORFLOW"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/swkang/open_spiel/open_spiel/abseil-cpp/CMake;/home/swkang/open_spiel/open_spiel/abseil-cpp/absl/copts"
+      CMAKE_MSVC_RUNTIME_LIBRARY: "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "ABSL_INTERNAL_AT_LEAST_CXX17"
+      cached: true
+      stdout: |
+        Change Dir: /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-N3YHgr
+        
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_23f36/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_23f36.dir/build.make CMakeFiles/cmTC_23f36.dir/build
+        gmake[1]: Entering directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-N3YHgr'
+        Building CXX object CMakeFiles/cmTC_23f36.dir/src.cxx.o
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang++ -DABSL_INTERNAL_AT_LEAST_CXX17  -O2 -Wno-everything -DOPEN_SPIEL_BUILD_WITH_PYTHON -DOPEN_SPIEL_ENABLE_JAX -DOPEN_SPIEL_ENABLE_PYTORCH -DOPEN_SPIEL_ENABLE_TENSORFLOW  -std=gnu++17 -fPIE -MD -MT CMakeFiles/cmTC_23f36.dir/src.cxx.o -MF CMakeFiles/cmTC_23f36.dir/src.cxx.o.d -o CMakeFiles/cmTC_23f36.dir/src.cxx.o -c /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-N3YHgr/src.cxx
+        Linking CXX executable cmTC_23f36
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23f36.dir/link.txt --verbose=1
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang++  -O2 -Wno-everything -DOPEN_SPIEL_BUILD_WITH_PYTHON -DOPEN_SPIEL_ENABLE_JAX -DOPEN_SPIEL_ENABLE_PYTORCH -DOPEN_SPIEL_ENABLE_TENSORFLOW  CMakeFiles/cmTC_23f36.dir/src.cxx.o -o cmTC_23f36 
+        gmake[1]: Leaving directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-N3YHgr'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckCXXSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "abseil-cpp/CMake/AbseilDll.cmake:717 (check_cxx_source_compiles)"
+      - "abseil-cpp/CMakeLists.txt:75 (include)"
+    checks:
+      - "Performing Test ABSL_INTERNAL_AT_LEAST_CXX20"
+    directories:
+      source: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-vSTIkb"
+      binary: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-vSTIkb"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -O2 -Wno-everything -DOPEN_SPIEL_BUILD_WITH_PYTHON -DOPEN_SPIEL_ENABLE_JAX -DOPEN_SPIEL_ENABLE_PYTORCH -DOPEN_SPIEL_ENABLE_TENSORFLOW"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/swkang/open_spiel/open_spiel/abseil-cpp/CMake;/home/swkang/open_spiel/open_spiel/abseil-cpp/absl/copts"
+      CMAKE_MSVC_RUNTIME_LIBRARY: "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "ABSL_INTERNAL_AT_LEAST_CXX20"
+      cached: true
+      stdout: |
+        Change Dir: /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-vSTIkb
+        
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9b7c2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9b7c2.dir/build.make CMakeFiles/cmTC_9b7c2.dir/build
+        gmake[1]: Entering directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-vSTIkb'
+        Building CXX object CMakeFiles/cmTC_9b7c2.dir/src.cxx.o
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang++ -DABSL_INTERNAL_AT_LEAST_CXX20  -O2 -Wno-everything -DOPEN_SPIEL_BUILD_WITH_PYTHON -DOPEN_SPIEL_ENABLE_JAX -DOPEN_SPIEL_ENABLE_PYTORCH -DOPEN_SPIEL_ENABLE_TENSORFLOW  -std=gnu++17 -fPIE -MD -MT CMakeFiles/cmTC_9b7c2.dir/src.cxx.o -MF CMakeFiles/cmTC_9b7c2.dir/src.cxx.o.d -o CMakeFiles/cmTC_9b7c2.dir/src.cxx.o -c /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-vSTIkb/src.cxx
+        /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-vSTIkb/src.cxx:6:4: error: "The compiler defaults or is configured for C++ < 20"
+            6 | #  error "The compiler defaults or is configured for C++ < 20"
+              |    ^
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_9b7c2.dir/build.make:79: CMakeFiles/cmTC_9b7c2.dir/src.cxx.o] Error 1
+        gmake[1]: Leaving directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-vSTIkb'
+        gmake: *** [Makefile:127: cmTC_9b7c2/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "abseil-cpp/CMakeLists.txt:101 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-RfEP9h"
+      binary: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-RfEP9h"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/swkang/open_spiel/open_spiel/abseil-cpp/CMake;/home/swkang/open_spiel/open_spiel/abseil-cpp/absl/copts"
+      CMAKE_MSVC_RUNTIME_LIBRARY: "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-RfEP9h
+        
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0538f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0538f.dir/build.make CMakeFiles/cmTC_0538f.dir/build
+        gmake[1]: Entering directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-RfEP9h'
+        Building C object CMakeFiles/cmTC_0538f.dir/src.c.o
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang -DCMAKE_HAVE_LIBC_PTHREAD  -fPIE -MD -MT CMakeFiles/cmTC_0538f.dir/src.c.o -MF CMakeFiles/cmTC_0538f.dir/src.c.o.d -o CMakeFiles/cmTC_0538f.dir/src.c.o -c /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-RfEP9h/src.c
+        Linking C executable cmTC_0538f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0538f.dir/link.txt --verbose=1
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang CMakeFiles/cmTC_0538f.dir/src.c.o -o cmTC_0538f 
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld: CMakeFiles/cmTC_0538f.dir/src.c.o: in function `main':
+        src.c:(.text+0x22): undefined reference to `pthread_create'
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld: src.c:(.text+0x2b): undefined reference to `pthread_detach'
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld: src.c:(.text+0x34): undefined reference to `pthread_cancel'
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld: src.c:(.text+0x41): undefined reference to `pthread_join'
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld: src.c:(.text+0x50): undefined reference to `pthread_atfork'
+        clang: error: linker command failed with exit code 1 (use -v to see invocation)
+        gmake[1]: *** [CMakeFiles/cmTC_0538f.dir/build.make:100: cmTC_0538f] Error 1
+        gmake[1]: Leaving directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-RfEP9h'
+        gmake: *** [Makefile:127: cmTC_0538f/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckLibraryExists.cmake:71 (try_compile)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "abseil-cpp/CMakeLists.txt:101 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-zir5Gt"
+      binary: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-zir5Gt"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/swkang/open_spiel/open_spiel/abseil-cpp/CMake;/home/swkang/open_spiel/open_spiel/abseil-cpp/absl/copts"
+      CMAKE_MSVC_RUNTIME_LIBRARY: "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-zir5Gt
+        
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_41475/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_41475.dir/build.make CMakeFiles/cmTC_41475.dir/build
+        gmake[1]: Entering directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-zir5Gt'
+        Building C object CMakeFiles/cmTC_41475.dir/CheckFunctionExists.c.o
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE -MD -MT CMakeFiles/cmTC_41475.dir/CheckFunctionExists.c.o -MF CMakeFiles/cmTC_41475.dir/CheckFunctionExists.c.o.d -o CMakeFiles/cmTC_41475.dir/CheckFunctionExists.c.o -c /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-zir5Gt/CheckFunctionExists.c
+        Linking C executable cmTC_41475
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_41475.dir/link.txt --verbose=1
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_41475.dir/CheckFunctionExists.c.o -o cmTC_41475  -lpthreads 
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/x86_64-conda-linux-gnu-ld: cannot find -lpthreads: No such file or directory
+        clang: error: linker command failed with exit code 1 (use -v to see invocation)
+        gmake[1]: *** [CMakeFiles/cmTC_41475.dir/build.make:100: cmTC_41475] Error 1
+        gmake[1]: Leaving directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-zir5Gt'
+        gmake: *** [Makefile:127: cmTC_41475/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckLibraryExists.cmake:71 (try_compile)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "abseil-cpp/CMakeLists.txt:101 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-aGZ6JT"
+      binary: "/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-aGZ6JT"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/swkang/open_spiel/open_spiel/abseil-cpp/CMake;/home/swkang/open_spiel/open_spiel/abseil-cpp/absl/copts"
+      CMAKE_MSVC_RUNTIME_LIBRARY: "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-aGZ6JT
+        
+        Run Build Command(s):/usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9ad27/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9ad27.dir/build.make CMakeFiles/cmTC_9ad27.dir/build
+        gmake[1]: Entering directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-aGZ6JT'
+        Building C object CMakeFiles/cmTC_9ad27.dir/CheckFunctionExists.c.o
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE -MD -MT CMakeFiles/cmTC_9ad27.dir/CheckFunctionExists.c.o -MF CMakeFiles/cmTC_9ad27.dir/CheckFunctionExists.c.o.d -o CMakeFiles/cmTC_9ad27.dir/CheckFunctionExists.c.o -c /home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-aGZ6JT/CheckFunctionExists.c
+        Linking C executable cmTC_9ad27
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ad27.dir/link.txt --verbose=1
+        /home/swkang/miniconda3/envs/swkang_hanabi/bin/clang  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_9ad27.dir/CheckFunctionExists.c.o -o cmTC_9ad27  -lpthread 
+        gmake[1]: Leaving directory '/home/swkang/open_spiel/open_spiel/CMakeFiles/CMakeScratch/TryCompile-aGZ6JT'
+        
+      exitCode: 0
+...
