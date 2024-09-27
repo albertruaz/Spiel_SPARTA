@@ -26,7 +26,9 @@
 
 #include "open_spiel/abseil-cpp/absl/algorithm/container.h"
 #include "open_spiel/abseil-cpp/absl/container/btree_map.h"
-#include "open_spiel/abseil-cpp/absl/random/bit_gen_ref.h"
+// #include "open_spiel/abseil-cpp/absl/random/bit_gen_ref.h"
+#include "/home/swkang/Spiel_SPARTA/open_spiel/open_spiel/abseil-cpp/absl/random/bit_gen_ref.h"
+
 #include "open_spiel/abseil-cpp/absl/random/distributions.h"
 #include "open_spiel/abseil-cpp/absl/strings/ascii.h"
 #include "open_spiel/abseil-cpp/absl/strings/match.h"
@@ -34,6 +36,7 @@
 #include "open_spiel/abseil-cpp/absl/strings/str_cat.h"
 #include "open_spiel/abseil-cpp/absl/strings/str_format.h"
 #include "open_spiel/abseil-cpp/absl/strings/str_join.h"
+
 #include "open_spiel/abseil-cpp/absl/strings/str_split.h"
 #include "open_spiel/abseil-cpp/absl/types/span.h"
 #include "open_spiel/game_parameters.h"

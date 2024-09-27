@@ -23,7 +23,8 @@ setup.py.
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='deepregret')
     # data
-    parser.add_argument('--botname', default="SimpleBot")
+    parser.add_argument('botname', default="SmartBot")
+    # parser.add_argument('--botname', default="SimpleBot")
     parser.add_argument('--players', type=int, default=2)
     parser.add_argument('--games', type=int, default=1000)
     parser.add_argument('--log_every', type=int, default=100)

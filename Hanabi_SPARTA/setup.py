@@ -31,6 +31,7 @@ setup(
             "csrc/JointSearchBot.cc",
             "csrc/HanabiServer.cc",
             "csrc/BotUtils.cc",
+            "csrc/TorchBot.cc",
         ] + OPTIONAL_SRC,
         # extra_compile_args=['-fPIC', '-std=c++1y', '-Wno-deprecated', '-O3', '-Wno-sign-compare', '-D_GLIBCXX_USE_CXX11_ABI=0', '-DCARD_ID=1'],
         extra_compile_args=['-fPIC', '-std=c++17', '-Wno-deprecated', '-O3', '-Wno-sign-compare', '-D_GLIBCXX_USE_CXX11_ABI=0', '-DCARD_ID=1', '-fpermissive'],
