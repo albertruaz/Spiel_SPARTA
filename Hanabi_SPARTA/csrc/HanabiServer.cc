@@ -310,7 +310,7 @@ int Server::runGame(std::vector<Bot*> players, const std::vector<Card>& stackedD
 }
 
 int Server::runToCompletion() {
-
+    
 //   while (!this->gameOver()) {
 //     // if (log_) {
 //     //   *log_ << "====> cards remaining: " << this->cardsRemainingInDeck() << " , empty? " << this->deck_.empty() << " , countdown " << finalCountdown_ << " , mulligans " << this->mulligansRemaining_ << " , score " << this->currentScore() << std::endl;
@@ -338,7 +338,7 @@ int Server::runToCompletion() {
 //     if (deck_.empty()) finalCountdown_ += 1;
 //   }
 //   int hanabi_result = this->currentScore();
-  /* *********************************************************************************** */
+/* *********************************************************************************** */
     std::vector<std::vector<std::vector<std::vector<int>>>> reward_func = {
             {
                 { {10, 0, 0}, {4, 8, 4}, {10, 0, 0} },
@@ -362,8 +362,6 @@ int Server::runToCompletion() {
     std::cerr << "o1, o2: "<< o1 << ", " << o2 << "a1, a2: "<< a1<< ", "<< a2 << std::endl;
     std::cerr << "score: " << hanabi_result << std::endl;
     std::cerr << "==================" << std::endl;
-    
-
     return hanabi_result;
 }
 

@@ -18,9 +18,6 @@
 #include <ctime>
 #include <thread>
 
-#include "InfoBot.h"
-#include "SmartBot.h"
-
 #include "BotUtils.h"
 
 using namespace Hanabi;
@@ -471,11 +468,11 @@ void FactorizedBeliefs::log() {
    }
  }
 
- Move SimulServer::simulatePlayerMove(int index, Bot *bot) {
+ Move SimulServer::simulatePlayerMove(int index, Bot *bot,int o1,int o2,int a1,int a2) {
    mock_ = true;
    last_move_ = Move();
    activePlayer_ = observingPlayer_ = index;
-   bot->pleaseMakeMove(*this);
+   bot->pleaseMakeMove(*this,o1, o2, a1, a2);
    assert(last_move_.type != INVALID_MOVE);
    Move ret = last_move_;
    last_move_ = Move();
@@ -518,9 +515,9 @@ void FactorizedBeliefs::log() {
    }
    std::cerr << now() << "applyToAll begin : " << hand_distribution.size() << " hands." << std::endl;
    auto hand_dist_keys = copyKeys(hand_distribution);
-   std::vector<std::future<void>> futures;
+  //  std::vector<std::future<void>> futures;
    for (int t = 0; t < NUM_THREADS; t++) {
-     futures.push_back(getThreadPool().enqueue([&, t]() {
+    //  futures.push_back(getThreadPool().enqueue([&, t]() {
        auto simulserver = std::make_shared<SimulServer>(*this);
        auto fp = std::make_shared<ObservationFunc>(f);
        for (int i = t; i < hand_dist_keys.size(); i += NUM_THREADS) {
@@ -535,11 +532,11 @@ void FactorizedBeliefs::log() {
          //   f(hand_distribution.at(hand).partners[p].get(), simulserver);
          // }
        }
-     }));
+    //  }));
    }
-   for (auto &f: futures) {
-     f.get();
-   }
+  //  for (auto &f: futures) {
+  //    f.get();
+  //  }
    std::cerr << now() << "applyToAll end" << std::endl;
  }
 

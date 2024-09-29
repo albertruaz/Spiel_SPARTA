@@ -18,7 +18,8 @@
 
 namespace SearchBotParams {
   // read in parameters from environment variables
-  const std::string BPBOT = Params::getParameterString("BPBOT", "SmartBot",
+  // const std::string BPBOT = Params::getParameterString("BPBOT", "SmartBot",
+  const std::string BPBOT = Params::getParameterString("BPBOT", "SearchBot",
     "The blueprint agent to use for search.");
   const int SEARCH_PLAYER = Params::getParameterInt("SEARCH_PLAYER", -1,
     "For single-agent search, which player performs search (negative numbers count from the end).");

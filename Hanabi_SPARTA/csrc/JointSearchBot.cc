@@ -179,7 +179,7 @@ size_t constructPrivateBeliefs_(const Hand &partnerHand, const HandDistCDF &publ
   return num_private_beliefs.load();
 }
 
-void JointSearchBot::pleaseMakeMove(Server &server)
+int JointSearchBot::pleaseMakeMove(Server &server,int o1,int o2,int a1,int a2)
 {
     // this is the same as SearchBot::pleaseMakeMove but uses hand_dists_[me]
     updateFrames_(me_, server);
@@ -235,9 +235,10 @@ void JointSearchBot::checkBeliefs_(const Server &server) const {
   }
 }
 
-void JointSearchBot::pleaseObserveBeforeMove(const Server &server) {
-  SearchBot::pleaseObserveBeforeMove(server);
+int JointSearchBot::pleaseObserveBeforeMove(Server &server,int o1,int o2,int a1,int a2) {
+  // SearchBot::pleaseObserveBeforeMove(server, o1, o2, a1, a2);
   updateFrames_(server.activePlayer(), server);
+  return 1;
 }
 
 void JointSearchBot::propagatePrunedHand_(int who, int frame_idx, const Hand &hand) {

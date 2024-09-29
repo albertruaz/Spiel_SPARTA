@@ -22,6 +22,7 @@ using namespace Hanabi;
 using namespace HanabiParams;
 using namespace SearchBotParams;
 
+
 namespace SearchBotParams {
   float SEARCH_THRESH = Params::getParameterFloat("SEARCH_THRESH", 0.1,
     "Search deviates from the blueprint only if the EV of a move exceeds the blueprint action EV by SEARCH_THRESH.");
@@ -39,22 +40,22 @@ void applyDelayedObservations(HandDist &handDist, const std::vector<BoxedHand> &
     // bail to save memory
     return;
   }
-  std::vector<boost::fibers::future<void>> futures;
+  // std::vector<boost::fibers::future<void>> futures;
   std::cerr << now() << "Applying "
     << handDist[handDistKeys[0]].delayed_observations.size() << " observations to "
     << handDistKeys.size() << " bots." << std::endl;
 
   for (int t = 0; t < NUM_THREADS; t++) {
-    futures.push_back(getThreadPool().enqueue([&, t]() {
+    // futures.push_back(getThreadPool().enqueue([&, t]() {
       for (int i = t; i < handDistKeys.size(); i += NUM_THREADS) {
         auto key = handDistKeys[i];
         handDist.at(key).applyObservations();
       }
-    }));
+    // }));
   }
-  for (auto &f: futures) {
-    f.get();
-  }
+  // for (auto &f: futures) {
+  //   f.get();
+  // }
   std::cerr << now() << "Done applying delayed observations." << std::endl;
 }
 
@@ -123,22 +124,22 @@ void SearchBot::init_(const Server &server) {
   std::cerr << now() << "Hand distribution contains " << hand_distribution_.size() << " hands." << std::endl;
 }
 
-void SearchBot::pleaseObserveBeforeMove(const Server &server) {
-  simulserver_.sync(server);
+int SearchBot::pleaseObserveBeforeMove(Server &server,int o1,int o2,int a1,int a2) {
+  // simulserver_.sync(server);
 
-  if (!inited_) {
-    this->init_(server);
-    inited_ = true;
-  }
+  // if (!inited_) {
+  //   this->init_(server);
+  //   inited_ = true;
+  // }
+  // assert(server.whoAmI() == me_);
 
-  assert(server.whoAmI() == me_);
-  simulserver_.sync(server);
-  std::cerr << now() << "applyToAll ObserveBeforeMove start" << std::endl;
-  applyToAll(
-    [](Bot *bot, const Server &server) { bot->pleaseObserveBeforeMove(server); }
-  );
-  std::cerr << now() << "applyToAll ObserveBeforeMove end" << std::endl;
-
+  // simulserver_.sync(server);
+  // std::cerr << now() << "applyToAll ObserveBeforeMove start" << std::endl;
+  // applyToAll(
+  //   [](Bot *bot, const Server &server) { bot->pleaseObserveBeforeMove(server, o1, o2, a1, a2); }
+  // );
+  // std::cerr << now() << "applyToAll ObserveBeforeMove end" << std::endl;
+  return 1;
 }
 
 void SearchBot::pleaseObserveBeforeDiscard(const Server &server, int from, int card_index) {
@@ -280,7 +281,11 @@ void SearchBot::filterBeliefsConsistentWithAction_(const Move &move, int from, c
     auto cheat_bot = hand_distribution_[cheat_hand].getPartner(from);
     auto cheat_server = SimulServer(server);
     cheat_server.setHand(me_, cheat_hand);
-    auto expected_move = cheat_server.simulatePlayerMove(from, cheat_bot->clone());
+    int o1 = 1;
+    int o2 = 1;
+    int a1 = 1;
+    int a2 = 1;
+    auto expected_move = cheat_server.simulatePlayerMove(from, cheat_bot->clone(),o1, o2, a1, a2);
     std::cerr << "SearchBot expected " << expected_move.toString() << " , observed " << move.toString() << std::endl;
   }
 
@@ -291,9 +296,9 @@ void SearchBot::filterBeliefsConsistentWithAction_(const Move &move, int from, c
   std::cerr << now() << "filterAction_ with " << old_size << " beliefs." << std::endl;
   auto hand_dist_keys = copyKeys(hand_distribution_);
   applyDelayedObservations(hand_distribution_, hand_dist_keys);
-  std::vector<boost::fibers::future<void>> futures;
+  // std::vector<boost::fibers::future<void>> futures;
   for (int t = 0; t < NUM_THREADS; t++) {
-    futures.push_back(getThreadPool().enqueue([&, t]() {
+    // futures.push_back(getThreadPool().enqueue([&, t]() {
       SimulServer simulserver(simulserver_);
       for (int i = t; i < hand_dist_keys.size(); i += NUM_THREADS) {
         auto &hand = hand_dist_keys[i];
@@ -307,18 +312,21 @@ void SearchBot::filterBeliefsConsistentWithAction_(const Move &move, int from, c
           }
           hand_distribution_[hand].prob *= (action_probs[moveToIndex(move, server)] + PARTNER_UNIFORM_UNC);
         } else {
-          Move cf_move = simulserver.simulatePlayerMove(from, bot.get());
-
+          int o1 = 1;
+          int o2 = 1;
+          int a1 = 1;
+          int a2 = 1;
+          Move cf_move = simulserver.simulatePlayerMove(from, bot.get(), o1, o2, a1, a2);
           if (move != cf_move) {
             hand_distribution_[hand].prob *= PARTNER_UNIFORM_UNC;
           }
         }
       }
-    }));
+    // }));
   }
-  for (auto &f: futures) {
-    f.get();
-  }
+  // for (auto &f: futures) {
+  //   f.get();
+  // }
   for (auto &hand: hand_dist_keys) {
     if (hand_distribution_[hand].prob == 0) {
       hand_distribution_.erase(hand);
@@ -612,15 +620,15 @@ public:
         if (!--mCount) {
             mGeneration++;
             mCount = mThreshold;
-            mCond.notify_all();
+            // mCond.notify_all();
         } else {
-            mCond.wait(lLock, [this, lGen] { return lGen != mGeneration; });
+            // mCond.wait(lLock, [this, lGen] { return lGen != mGeneration; });
         }
     }
 
 private:
     std::mutex mMutex;
-    boost::fibers::condition_variable_any mCond;
+    // boost::fibers::condition_variable_any mCond;
     std::size_t mThreshold;
     std::size_t mCount;
     std::size_t mGeneration;
@@ -752,7 +760,7 @@ Move SearchBot::doSearch_(
   //std::cerr << "Temporary number of threads: " << temp_num_threads << std::endl;
   int temp_search_n = SEARCH_N - (SEARCH_N % temp_num_threads);
 
-  std::vector<boost::fibers::future<void>> futures;
+  // std::vector<boost::fibers::future<void>> futures;
   std::mutex mtx;
   Barrier barrier(temp_num_threads);
 
@@ -763,7 +771,7 @@ Move SearchBot::doSearch_(
   std::vector<int> scores(SEARCH_N, -2);
   int accumed = 0;
   for (int t = 0; t < temp_num_threads; t++) {
-    futures.push_back(getThreadPool().enqueue([&, t](){
+    // futures.push_back(getThreadPool().enqueue([&, t](){
       for (int j = t; j < temp_search_n; j += temp_num_threads) {
         if (frame_bail || prune_count >= num_moves - 1) {
           break;
@@ -811,11 +819,11 @@ Move SearchBot::doSearch_(
           barrier.wait();
         }
       }
-    }));
+    // }));
   }
-  for(auto &f: futures) {
-    f.get();
-  }
+  // for(auto &f: futures) {
+  //   f.get();
+  // }
   if (frame_bail) { //Then all that matters is we didn't choose the observed action
     return Move();
   }
@@ -843,7 +851,7 @@ Move SearchBot::doSearch_(
   return best_move;
 }
 
-void SearchBot::pleaseMakeMove(Server &server)
+int SearchBot::pleaseMakeMove(Server &server,int o1,int o2,int a1,int a2)
 {
     simulserver_.sync(server);
     Move bp_move = simulserver_.simulatePlayerMove(me_, players_[me_].get());
@@ -871,4 +879,5 @@ void SearchBot::pleaseMakeMove(Server &server)
     }
 
     execute_(me_, move, server);
+    return 1;
 }

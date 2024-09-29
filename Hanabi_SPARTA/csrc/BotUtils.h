@@ -232,7 +232,7 @@ public:
   void setDeck(const std::vector<Hanabi::Card> &deck);
 
   /* Simulate the bot making a move, and return what the move was. */
-  Move simulatePlayerMove(int index, Hanabi::Bot *bot);
+  Move simulatePlayerMove(int index, Hanabi::Bot *bot,int o1,int o2,int a1,int a2);
   /* Apply an observation function (e.g. pleaseObserveBeforePlay) to all bots.
    * This observation is applied to the server's bot for me_, and to all
    * possible partner bots corresponding to every possible hand I may have in

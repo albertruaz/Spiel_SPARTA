@@ -35,7 +35,8 @@ static void dump_stats(std::string botname, Statistics stats)
 
 void eval_bot() {
 
-    std::string botname = "SimpleBot";
+    // std::string botname = "SimpleBot";
+    std::string botname = "SearchBot";
     int player_num = 2;
     int games = 1000;
     int log_every = 100;
