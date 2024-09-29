@@ -153,34 +153,63 @@ Server::Server(): log_(nullptr), activeCard_(RED,1) { }
 
 bool Server::gameOver() const
 {
-    /* The game ends if there are no more cards to draw... */
-    if (this->deck_.empty() && finalCountdown_ == numPlayers_+1) return true;
-    /* ...no more mulligans available... */
-    if (this->mulligansRemaining_ == 0) return true;
-    /* ...or if the piles are all complete. */
-    if (this->currentScore() == 5*NUMCOLORS) return true;
-    /* Otherwise, the game has not ended. */
+    // /* The game ends if there are no more cards to draw... */
+    // if (this->deck_.empty() && finalCountdown_ == numPlayers_+1) return true;
+    // /* ...no more mulligans available... */
+    // if (this->mulligansRemaining_ == 0) return true;
+    // /* ...or if the piles are all complete. */
+    // if (this->currentScore() == 5*NUMCOLORS) return true;
+    // /* Otherwise, the game has not ended. */
     return false;
 }
 
-int Server::currentScore() const
+int Server::currentScore(int o1, int o2, int a1, int a2) const
 {
-    if(mulligansRemaining_ == 0 && BOMB0) {
-      return 0;
-    }
 
-    int sum = 0;
-    for (int color = 0; color < NUMCOLORS; ++color) {
-        const Pile &pile = this->piles_[color];
-        if (!pile.empty()) {
-            sum += pile.topCard().value;
+    // if(mulligansRemaining_ == 0 && BOMB0) {
+    //   return 0;
+    // }
+
+    // int sum = 0;
+    // for (int color = 0; color < NUMCOLORS; ++color) {
+    //     const Pile &pile = this->piles_[color];
+    //     if (!pile.empty()) {
+    //         sum += pile.topCard().value;
+    //     }
+    // }
+    // // add a little penalty to discouurage mulligans based on equivalent choices
+    // if (mulligansRemaining_ == 0) {
+    //   sum = std::max(sum - BOMBD, 0);
+    // }
+    // return sum;
+    std::vector<std::vector<std::vector<std::vector<int>>>> reward_func = {
+        {
+            { {10, 0, 0}, {4, 8, 4}, {10, 0, 0} },
+            { {0, 0, 10}, {4, 8, 4}, {0, 0, 10} }
+        },
+        {
+            { {0, 0, 10}, {4, 8, 4}, {0, 0, 0} },
+            { {10, 0, 0}, {4, 8, 4}, {10, 0, 0} }
         }
-    }
-    // add a little penalty to discouurage mulligans based on equivalent choices
-    if (mulligansRemaining_ == 0) {
-      sum = std::max(sum - BOMBD, 0);
-    }
-    return sum;
+    };
+
+    // int num_obs = 2;
+    // int num_actions = 3;
+    // std::vector<std::string> OBS_NAME = {"X", "Y"};
+    // std::vector<std::string> ACTION_NAME = {"A", "B", "C"};
+
+    // // 예시: reward_func의 값을 출력
+    // for (int o1 = 0; o1 < num_obs; ++o1) {
+    //     for (int o2 = 0; o2 < num_obs; ++o2) {
+    //         for (int a1 = 0; a1 < num_actions; ++a1) {
+    //             for (int a2 = 0; a2 < num_actions; ++a2) {
+    //                 std::cout << "reward_func[" << o1 << "][" << o2 << "][" << a1 << "][" << a2 << "] = "
+    //                           << reward_func[o1][o2][a1][a2] << std::endl;
+    //             }
+    //         }
+    //     }
+    // }
+    return reward_func[o1][o2][a1][a2];
 }
 
 void Server::setLog(std::ostream *logStream)
@@ -228,91 +257,114 @@ int Server::runGame(const BotFactory &botFactory, int numPlayers, const std::vec
 
 int Server::runGame(std::vector<Bot*> players, const std::vector<Card>& stackedDeck)
 {
+    std::cerr << " " << std::endl;
+    std::cerr << " " << std::endl;
     std::cerr << "Starting game..." << std::endl;
+
     /* Create and initialize the bots. */
     players_ = players;
     numPlayers_ = players.size();
-    const int initialHandSize = this->handSize();
 
-    /* Initialize the piles and stones. */
-    for (Color color = RED; color <= BLUE; ++color) {
-        piles_[(int)color].color = color;
-        piles_[(int)color].size_ = 0;
-    }
-    mulligansRemaining_ = NUMMULLIGANS;
-    hintStonesRemaining_ = NUMHINTS;
-    finalCountdown_ = 0;
+    /* ********************************************************************************** */
+//     const int initialHandSize = this->handSize();
+//     /* Initialize the piles and stones. */
+//     for (Color color = RED; color <= BLUE; ++color) {
+//         piles_[(int)color].color = color;
+//         piles_[(int)color].size_ = 0; }
+//     mulligansRemaining_ = NUMMULLIGANS; hintStonesRemaining_ = NUMHINTS; finalCountdown_ = 0;
+//     /* Shuffle the deck. */
+//     if (!stackedDeck.empty()) {
+//         deck_ = stackedDeck;
+//         std::reverse(deck_.begin(), deck_.end());  /* because we pull cards from the "top" (back) of the vector */
+//     } else {
+//         deck_.clear();
+//         for (Color color = RED; color <= BLUE; ++color) {
+//             for (int value = 1; value <= 5; ++value) {
+//                 const Card card(color, value);
+//                 const int n = card.count();
+//                 for (int k=0; k < n; ++k) deck_.push_back(card); } }
+//         portable_shuffle(deck_.begin(), deck_.end(), rand_); }
+// #ifdef CARD_ID
+//     int id_count = 0;
+//     for (auto &card: deck_) {
+//       card.id = id_count++;
+//     }
+// #endif
+//     discards_.clear();
+//     /* Secretly draw the starting hands. */
+//     hands_.resize(numPlayers_);
+//     for (int i=0; i < numPlayers_; ++i) {
+//         hands_[i].clear();
+//         for (int k=0; k < initialHandSize; ++k) {
+//             hands_[i].push_back(this->draw_()); } }
+//     /* Run the game. */
+//     activeCardIsObservable_ = false;
+//     activePlayer_ = 0;
+//     movesFromActivePlayer_ = -1;
 
-    /* Shuffle the deck. */
-    if (!stackedDeck.empty()) {
-        deck_ = stackedDeck;
-        std::reverse(deck_.begin(), deck_.end());  /* because we pull cards from the "top" (back) of the vector */
-    } else {
-        deck_.clear();
-        for (Color color = RED; color <= BLUE; ++color) {
-            for (int value = 1; value <= 5; ++value) {
-                const Card card(color, value);
-                const int n = card.count();
-                for (int k=0; k < n; ++k) deck_.push_back(card);
-            }
-        }
-        portable_shuffle(deck_.begin(), deck_.end(), rand_);
-    }
-#ifdef CARD_ID
-    int id_count = 0;
-    for (auto &card: deck_) {
-      card.id = id_count++;
-    }
-#endif
-    discards_.clear();
-
-    /* Secretly draw the starting hands. */
-    hands_.resize(numPlayers_);
-    for (int i=0; i < numPlayers_; ++i) {
-        hands_[i].clear();
-        for (int k=0; k < initialHandSize; ++k) {
-            hands_[i].push_back(this->draw_());
-        }
-    }
-
-    /* Run the game. */
-    activeCardIsObservable_ = false;
-    activePlayer_ = 0;
-    movesFromActivePlayer_ = -1;
+    
+    /* ********************************************************************************** */
     int score = this->runToCompletion();
 
     return score;
 }
 
 int Server::runToCompletion() {
-  while (!this->gameOver()) {
-    if (log_) {
-      *log_ << "====> cards remaining: " << this->cardsRemainingInDeck() << " , empty? " << this->deck_.empty() << " , countdown " << finalCountdown_ << " , mulligans " << this->mulligansRemaining_ << " , score " << this->currentScore() << std::endl;
-    }
 
-    if (activePlayer_ == 0) this->logHands_();
-    for (int i=0; i < numPlayers_; ++i) {
-        observingPlayer_ = i;
-        players_[i]->pleaseObserveBeforeMove(*this);
-    }
-    observingPlayer_ = activePlayer_;
-    movesFromActivePlayer_ = 0;
-    players_[activePlayer_]->pleaseMakeMove(*this);  /* make a move */
-    // added this short-circuit in case you forcibly end the game, toa void asserts and waiting
-    if (this->gameOver()) break;
-    HANABI_SERVER_ASSERT(movesFromActivePlayer_ != 0, "bot failed to respond to pleaseMove()");
-    assert(movesFromActivePlayer_ == 1);
-    movesFromActivePlayer_ = -1;
-    for (int i=0; i < numPlayers_; ++i) {
-        observingPlayer_ = i;
-        players_[i]->pleaseObserveAfterMove(*this);
-    }
-    activePlayer_ = (activePlayer_ + 1) % numPlayers_;
-    assert(0 <= finalCountdown_ && finalCountdown_ <= numPlayers_);
-    if (deck_.empty()) finalCountdown_ += 1;
-  }
+//   while (!this->gameOver()) {
+//     // if (log_) {
+//     //   *log_ << "====> cards remaining: " << this->cardsRemainingInDeck() << " , empty? " << this->deck_.empty() << " , countdown " << finalCountdown_ << " , mulligans " << this->mulligansRemaining_ << " , score " << this->currentScore() << std::endl;
+//     // }
+//
+//     if (activePlayer_ == 0) this->logHands_();
+//     for (int i=0; i < numPlayers_; ++i) {
+//         observingPlayer_ = i;
+//         players_[i]->pleaseObserveBeforeMove(*this);
+//     }
+//     observingPlayer_ = activePlayer_;
+//     movesFromActivePlayer_ = 0;
+//     players_[activePlayer_]->pleaseMakeMove(*this);  /* make a move */
+//     // added this short-circuit in case you forcibly end the game, toa void asserts and waiting
+//     if (this->gameOver()) break;
+//     HANABI_SERVER_ASSERT(movesFromActivePlayer_ != 0, "bot failed to respond to pleaseMove()");
+//     assert(movesFromActivePlayer_ == 1);
+//     movesFromActivePlayer_ = -1;
+//     for (int i=0; i < numPlayers_; ++i) {
+//         observingPlayer_ = i;
+//         players_[i]->pleaseObserveAfterMove(*this);
+//     }
+//     activePlayer_ = (activePlayer_ + 1) % numPlayers_;
+//     assert(0 <= finalCountdown_ && finalCountdown_ <= numPlayers_);
+//     if (deck_.empty()) finalCountdown_ += 1;
+//   }
+//   int hanabi_result = this->currentScore();
+  /* *********************************************************************************** */
+    std::vector<std::vector<std::vector<std::vector<int>>>> reward_func = {
+            {
+                { {10, 0, 0}, {4, 8, 4}, {10, 0, 0} },
+                { {0, 0, 10}, {4, 8, 4}, {0, 0, 10} }
+            },
+            {
+                { {0, 0, 10}, {4, 8, 4}, {0, 0, 0} },
+                { {10, 0, 0}, {4, 8, 4}, {10, 0, 0} }
+            }
+        };
+    int o1 = 0;
+    int o2 = 1;
+    int a1 = -1;
+    int a2 = -1;
+    players_[0]->pleaseObserveBeforeMove(*this,o1,-1,a1,a2);
+    a1 = players_[0]->pleaseMakeMove(*this,o1,o2,a1,a2);  /* make a move */
+    players_[1]->pleaseObserveBeforeMove(*this,-1,o2,a1,a2);
+    a2 = players_[1]->pleaseMakeMove(*this,o1,o2,a1,a2);  /* make a move */
+    int hanabi_result = this->currentScore(o1, o2, a1, a2);
+    std::cerr << "===== Result =====" << std::endl;
+    std::cerr << "o1, o2: "<< o1 << ", " << o2 << "a1, a2: "<< a1<< ", "<< a2 << std::endl;
+    std::cerr << "score: " << hanabi_result << std::endl;
+    std::cerr << "==================" << std::endl;
+    
 
-  return this->currentScore();
+    return hanabi_result;
 }
 
 void Server::endGameByBombingOut() {
@@ -331,8 +383,9 @@ int Server::handSize() const
 
 int Server::whoAmI() const
 {
-    assert(0 <= observingPlayer_ && observingPlayer_ < numPlayers_);
-    return observingPlayer_;
+    // assert(0 <= observingPlayer_ && observingPlayer_ < numPlayers_);
+    // return observingPlayer_;
+    return 0;
 }
 
 int Server::activePlayer() const

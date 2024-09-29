@@ -79,11 +79,6 @@ void SimpleBot::invalidateKnol(int player_index, int card_index)
     vec.back() = CardKnowledge();
 }
 
-void SimpleBot::pleaseObserveBeforeMove(const Server &server)
-{
-    assert(server.whoAmI() == me_);
-}
-
 void SimpleBot::pleaseObserveBeforeDiscard(const Hanabi::Server &server, int from, int card_index)
 {
     assert(server.whoAmI() == me_);
@@ -268,27 +263,35 @@ bool SimpleBot::maybeGiveHelpfulHint(Server &server)
     return true;
 }
 
-void SimpleBot::pleaseMakeMove(Server &server)
+int SimpleBot::pleaseMakeMove(Server &server,int o1,int o2,int a1,int a2)
 {
-    assert(server.whoAmI() == me_);
-    assert(server.activePlayer() == me_);
+    return 1;
+    // assert(server.whoAmI() == me_);
+    // assert(server.activePlayer() == me_);
 
-    /* If I have a playable card, play it.
-     * Otherwise, if someone else has an unknown-playable card, hint it.
-     * Otherwise, just discard my oldest (index-0) card. */
+    // /* If I have a playable card, play it.
+    //  * Otherwise, if someone else has an unknown-playable card, hint it.
+    //  * Otherwise, just discard my oldest (index-0) card. */
 
-    if (maybePlayLowestPlayableCard(server)) return;
-    if (maybeGiveHelpfulHint(server)) return;
+    // if (maybePlayLowestPlayableCard(server)) return;
+    // if (maybeGiveHelpfulHint(server)) return;
 
-    /* We couldn't find a good hint to give, or else we're out of hint-stones.
-     * Discard a card. However, discarding is not allowed when we have all
-     * the hint stones, so in that case, just hint to the player on our right
-     * about his oldest card. */
-    if (!server.discardingIsAllowed()) {
-        const int numPlayers = server.numPlayers();
-        const int right_partner = (me_ + numPlayers - 1) % numPlayers;
-        server.pleaseGiveValueHint(right_partner, server.handOfPlayer(right_partner)[0].value);
-    } else {
-        server.pleaseDiscard(0);
-    }
+    // /* We couldn't find a good hint to give, or else we're out of hint-stones.
+    //  * Discard a card. However, discarding is not allowed when we have all
+    //  * the hint stones, so in that case, just hint to the player on our right
+    //  * about his oldest card. */
+    // if (!server.discardingIsAllowed()) {
+    //     const int numPlayers = server.numPlayers();
+    //     const int right_partner = (me_ + numPlayers - 1) % numPlayers;
+    //     server.pleaseGiveValueHint(right_partner, server.handOfPlayer(right_partner)[0].value);
+    // } else {
+    //     server.pleaseDiscard(0);
+    // }
+}
+
+
+int SimpleBot::pleaseObserveBeforeMove(Server &server,int o1,int o2,int a1,int a2)
+{
+    // assert(server.whoAmI() == me_);
+    return 0;
 }

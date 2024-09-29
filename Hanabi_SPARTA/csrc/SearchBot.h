@@ -57,8 +57,8 @@ void applyDelayedObservations(
 struct SearchBot : public Hanabi::Bot {
   /* public API */
   SearchBot(int index, int numPlayers, int handSize);
-  void pleaseObserveBeforeMove(const Hanabi::Server &server) override;
-  void pleaseMakeMove(Hanabi::Server &server) override;
+  int pleaseObserveBeforeMove(Hanabi::Server &server, int o1,int o2,int a1,int a2) override;
+  int pleaseMakeMove(Hanabi::Server &server,int o1,int o2,int a1,int a2) override;
     void pleaseObserveBeforeDiscard(const Hanabi::Server &server, int from, int card_index) override;
     void pleaseObserveBeforePlay(const Hanabi::Server &server, int from, int card_index) override;
     void pleaseObserveColorHint(const Hanabi::Server &server, int from, int to, Hanabi::Color color, Hanabi::CardIndices card_indices) override;

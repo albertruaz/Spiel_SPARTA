@@ -41,8 +41,8 @@ class SimpleBot final : public Hanabi::Bot {
 
   public:
     SimpleBot(int index, int numPlayers, int handSize);
-    void pleaseObserveBeforeMove(const Hanabi::Server &) override;
-    void pleaseMakeMove(Hanabi::Server &) override;
+    int pleaseObserveBeforeMove(Hanabi::Server &,int o1,int o2,int a1,int a2) override;
+    int pleaseMakeMove(Hanabi::Server &,int o1,int o2,int a1,int a2) override;
       void pleaseObserveBeforeDiscard(const Hanabi::Server &, int from, int card_index) override;
       void pleaseObserveBeforePlay(const Hanabi::Server &, int from, int card_index) override;
       void pleaseObserveColorHint(const Hanabi::Server &, int from, int to, Hanabi::Color color, Hanabi::CardIndices card_indices) override;

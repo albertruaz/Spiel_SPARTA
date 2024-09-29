@@ -34,12 +34,12 @@ struct JointSearchBot : public SearchBot {
 protected:
   void init_(const Hanabi::Server &server) override;
   void applyToAll(ObservationFunc f) override;
-  void pleaseObserveBeforeMove(const Hanabi::Server &server) override;
+  int pleaseObserveBeforeMove(Hanabi::Server &server,int o1,int o2,int a1,int a2) override;
   void updateBeliefsFromDraw_(int who, int card_index, Hanabi::Card played_card, const Hanabi::Server &server) override;
   void filterBeliefsConsistentWithHint_(int from, const Move &move, const Hanabi::CardIndices &card_indices, const Hanabi::Server &server) override;
   void filterBeliefsConsistentWithAction_(const Move &move, int from, const Hanabi::Server &server) override;
   void checkBeliefs_(const Hanabi::Server &server) const override;
-  void pleaseMakeMove(Hanabi::Server &server) override;
+  int pleaseMakeMove(Hanabi::Server &server,int o1,int o2,int a1,int a2) override;
 
   // void constructPrivateBeliefs_(int who, const Hand &partnerHand, HandDist &newHandDist, const Hanabi::Server &server);
 

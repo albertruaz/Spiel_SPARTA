@@ -231,6 +231,7 @@ public:
     /* Observe the pile of the given color. */
     Pile pileOf(Color color) const;
 
+
     /* Returns a vector of the discards over the whole game.
      * The first card ever discarded is v[0]; the latest
      * card discarded is v[v.size()-1].
@@ -266,7 +267,7 @@ public:
 
     /* Return the current score, which is just the sum of the
      * values of the top cards in every pile. */
-    int currentScore() const;
+    int currentScore(int a, int b, int c, int d) const;
 
 
     /*================= MUTATORS =============================*/
@@ -357,8 +358,8 @@ namespace Hanabi {
 class Bot {
 public:
     virtual ~Bot();  /* virtual destructor */
-    virtual void pleaseObserveBeforeMove(const Server &) = 0;
-    virtual void pleaseMakeMove(Server &) = 0;
+    virtual int pleaseObserveBeforeMove(Server &,int o1,int o2,int a1,int a2) = 0;
+    virtual int pleaseMakeMove(Server &,int o1,int o2,int a1,int a2) = 0;
       virtual void pleaseObserveBeforeDiscard(const Server &, int from, int card_index) = 0;
       virtual void pleaseObserveBeforePlay(const Server &, int from, int card_index) = 0;
       virtual void pleaseObserveColorHint(const Server &, int from, int to, Color color, CardIndices card_indices) = 0;
