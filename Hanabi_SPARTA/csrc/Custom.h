@@ -1,152 +1,77 @@
-#ifndef H_CUSTOM_SERVER
-#define H_CUSTOM_SERVER
+// CustomBot.h
+#ifndef CUSTOM_BOT_H
+#define CUSTOM_BOT_H
 
-#include <cassert>
-#include <string>
-#include <ostream>
+#include "Bot.h"
+#include "Server.h"
 #include <random>
-#include <vector>
-#include <tuple>
-#include "ThreadPool.h"
-#include <future>
+#include <iostream>
 
-namespace Params {
-  std::string getParameterString(
-    const std::string &name,
-    std::string default_val,
-    const std::string help=""
-  );
-  int getParameterInt(
-    const std::string &name,
-    int default_val,
-    const std::string help=""
-  );
-  float getParameterFloat(
-    const std::string &name,
-    float default_val,
-    const std::string help=""
-  );
-}
+namespace Hanabi {
 
-namespace CustomParams {
-  // Example parameters
-  // const int CUSTOM_PARAM1 = Params::getParameterInt("CUSTOM_PARAM1", 0, "Custom parameter 1");;
-}
-
-// Declare Class
-namespace CustomGame { 
-    class Server;
-    class Bot;
-    class BotFactory;
-}
-
-namespace CustomGame {
-
-inline ThreadPool &getThreadPool() {
-  static std::shared_ptr<ThreadPool> pool;
-  if (!pool || pool->stop) {
-    pool.reset(new ThreadPool(CustomParams::CUSTOM_THREADS));
-  }
-  return *pool;
-}
-
-class ServerError : public std::runtime_error {
+class CustomBot : public Bot {
 public:
-  explicit ServerError(const std::string& what_arg) : runtime_error(what_arg) {}
-};
+    CustomBot(int index, int numPlayers, int handSize)
+        : index_(index), numPlayers_(numPlayers), handSize_(handSize), rng_(std::random_device{}()) {}
 
-// CustomGame에 사용될 기본 타입 및 상수
-// typedef enum: int8_t { TYPE_A=0, TYPE_B, TYPE_C, INVALID_TYPE } CustomType;
-// constexpr int NUM_TYPES = 3;
-// constexpr int CUSTOM_INFOS = 5;
+    virtual ~CustomBot() override {}
 
-class Server {
-public:
-    Server();
-    virtual ~Server() {}
+    virtual void pleaseObserveBeforeMove(const Server &server) override {
+        // Implement any observation logic before making a move
+        std::cout << "Bot " << index_ << " observing before move.\n";
+    }
 
-    /* Set up logging for debugging */
-    void setLog(std::ostream *logStream);
+    virtual void pleaseMakeMove(Server &server) override {
+        // Implement the logic to make a move based on the current server state
+        std::cout << "Bot " << index_ << " making a move.\n";
+        auto actions = server.LegalActions(index_);
+        if (actions.empty()) {
+            std::cout << "No legal actions available for Bot " << index_ << ".\n";
+            return;
+        }
+        // For demonstration, select a random action
+        std::uniform_int_distribution<> dis(0, actions.size() - 1);
+        auto action = actions[dis(rng_)];
+        server.ApplyAction(action);
+        std::cout << "Bot " << index_ << " applied action " << action << ".\n";
+    }
 
-    /* Seed the random number generator */
-    void srand(unsigned int seed);
+    virtual void pleaseObserveBeforeDiscard(const Server &server, int from, int card_index) override {
+        // Implement logic to observe before discarding a card
+        std::cout << "Bot " << index_ << " observing before discard.\n";
+    }
 
-    /* Start a new game with a given number of players */
-    int runGame(int numPlayers);
+    virtual void pleaseObserveBeforePlay(const Server &server, int from, int card_index) override {
+        // Implement logic to observe before playing a card
+        std::cout << "Bot " << index_ << " observing before play.\n";
+    }
 
-    /* Returns the number of players in the game */
-    int numPlayers() const;
+    virtual void pleaseObserveColorHint(const Server &server, int from, int to, Color color, CardIndices card_indices) override {
+        // Implement logic to handle color hints
+        std::cout << "Bot " << index_ << " received a color hint.\n";
+    }
 
-    /* Returns TRUE if the game is over */
-    bool gameOver() const;
+    virtual void pleaseObserveValueHint(const Server &server, int from, int to, Value value, CardIndices card_indices) override {
+        // Implement logic to handle value hints
+        std::cout << "Bot " << index_ << " received a value hint.\n";
+    }
 
-    /* Returns the current score */
-    int currentScore() const;
+    virtual void pleaseObserveAfterMove(const Server &server) override {
+        // Implement any observation logic after making a move
+        std::cout << "Bot " << index_ << " observing after move.\n";
+    }
 
-    /*================= MUTATORS =============================*/
+    virtual Bot* clone() const override {
+        return new CustomBot(*this);
+    }
 
-    /* Example of a custom action */
-    virtual void customAction(int index);
-
-    /*================= DEBUGGING TOOLS ======================*/
-
-    std::string customStateAsString() const;
-
-protected:
-    std::ostream *log_;
-    std::mt19937 rand_;
+private:
+    int index_;
     int numPlayers_;
-    int activePlayer_;
-    int score_;
-    bool gameEnded_;
-    int livesRemaining_;
-
-    /* Private methods */
-    void drawCard();
-    void loseLife();
-    void logState_() const;
-
-    // TODO: 여기에 추가적인 게임 메커니즘 작성
+    int handSize_;
+    mutable std::mt19937 rng_;
 };
 
-}  /* namespace CustomGame */
+} // namespace Hanabi
 
-
-namespace CustomGame {
-  
-class Bot {
-public:
-    virtual ~Bot();
-    virtual void pleaseObserveBeforeMove(const Server &) = 0;
-    virtual void pleaseMakeMove(Server &) = 0;
-    virtual void pleaseObserveBeforeDiscard(const Server &, int from, int card_index) = 0;
-    virtual void pleaseObserveBeforePlay(const Server &, int from, int card_index) = 0;
-    virtual void pleaseObserveColorHint(const Server &, int from, int to, Color color, CardIndices card_indices) = 0;
-    virtual void pleaseObserveValueHint(const Server &, int from, int to, Value value, CardIndices card_indices) = 0;
-    virtual void pleaseObserveAfterMove(const Server &) = 0;
-    
-    virtual Bot *clone() const { throw std::runtime_error("Not implemented."); }
-    virtual void setPermissive(bool permissive) { permissive_ = permissive; }
-    virtual const std::map<int, float> &getActionProbs() const { throw std::runtime_error("Not implemented."); }
-    virtual void setActionUncertainty(float action_unc) { throw std::runtime_error("Not implemented."); }
-
-protected:
-    bool permissive_ = false;
-};
-
-
-class BotFactory {
-public:
-    virtual Bot *create(int index, int numPlayers, int handSize) const = 0;
-    virtual void destroy(Bot *bot) const = 0;
-    virtual ~BotFactory() = default;
-};
-
-// simple registration of BotFactory's by string key
-void registerBotFactory(std::string name, std::shared_ptr<Hanabi::BotFactory> factory);
-std::shared_ptr<Hanabi::BotFactory> getBotFactory(const std::string &botName);
-
-}
-
-
-#endif /* H_CUSTOM_SERVER */
+#endif // CUSTOM_BOT_H

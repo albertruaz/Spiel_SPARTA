@@ -26,6 +26,11 @@ link_directories(
 add_executable(tiny_hanabi_test_build 
     ./csrc/tiny_hanabi_test.cc
     ./csrc/extensiontiny.cc
+    ./csrc/HanabiServer.cc
+    # ./csrc/BotUtils.cc
+    # ./csrc/SimpleBot.cc
+    # ./csrc/SearchBot.cc
+    # ./csrc/JointSearchBot.cc
 )
 
 # open_spiel 라이브러리 연결

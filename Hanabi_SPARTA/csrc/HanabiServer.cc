@@ -13,6 +13,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <map> 
 #include "Hanabi.h"
 
 #ifdef HANABI_SERVER_NDEBUG
