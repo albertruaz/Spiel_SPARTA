@@ -1,0 +1,85 @@
+cmake_minimum_required(VERSION 3.14)
+# 프로젝트 이름 및 언어 설정
+project(Hanabi_SPARTA VERSION 1.0 LANGUAGES CXX)
+
+# 컴파일러 설정
+set(CMAKE_C_COMPILER "/home/swkang/miniconda3/envs/swkang_hanabi/bin/clang")
+set(CMAKE_CXX_COMPILER "/home/swkang/miniconda3/envs/swkang_hanabi/bin/clang++")
+# C++17 표준 사용
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+
+# 설치 경로 설정 (선택 사항)
+set(CMAKE_INSTALL_PREFIX "/home/swkang/Spiel_SPARTA/Hanabi_SPARTA")
+# 빌드 시 Python 경로 설정 (필요할 경우 사용)
+set(PYTHONPATH "/home/swkang/Spiel_SPARTA/Hanabi_SPARTA:${PYTHONPATH}")
+
+
+# Boost 라이브러리 경로 설정 (Conda 환경 경로)
+set(BOOST_ROOT "/home/swkang/miniconda3/envs/swkang_hanabi")
+set(BOOST_LIBRARYDIR "/home/swkang/miniconda3/envs/swkang_hanabi/lib")
+# Boost 라이브러리 찾기
+find_package(Boost 1.70 REQUIRED COMPONENTS fiber thread context)
+
+
+# Abseil 설정 (정적 라이브러리 사용)
+# find_package(Abseil REQUIRED)
+# include_directories("/home/swkang/Spiel_SPARTA/open_spiel/build/abseil-cpp/absl")
+# include_directories("/home/swkang/Spiel_SPARTA/open_spiel/build/abseil-cpp/absl/base")
+# include_directories("/home/swkang/Spiel_SPARTA/open_spiel/build/abseil-cpp/absl/strings")
+# find_library(ABSL_BASE absl_base PATHS /home/swkang/Spiel_SPARTA/open_spiel/build/abseil-cpp/absl/base)
+# find_library(ABSL_SYNCHRONIZATION absl_synchronization PATHS /home/swkang/Spiel_SPARTA/open_spiel/build/abseil-cpp/absl/synchronization)
+# find_library(ABSL_HASH absl_hash PATHS /home/swkang/Spiel_SPARTA/open_spiel/build/abseil-cpp/absl/hash)
+set(ABSEIL_CPP_LIB_DIR "/home/swkang/Spiel_SPARTA/open_spiel/build/abseil-cpp/absl")
+# Abseil 정적 라이브러리 파일 경로 설정
+# set(ABSL_LIBS
+#     /home/swkang/Spiel_SPARTA/open_spiel/build/abseil-cpp/absl/base/libabsl_base.a
+#     /home/swkang/Spiel_SPARTA/open_spiel/build/abseil-cpp/absl/strings/libabsl_strings.a
+#     # 필요한 경우 추가 Abseil 정적 라이브러리를 여기에 추가
+# )
+
+# OpenSpiel 찾기
+set(CMAKE_PREFIX_PATH "/home/swkang/Spiel_SPARTA/open_spiel/build" ${CMAKE_PREFIX_PATH})
+# find_package(OpenSpiel REQUIRED)
+
+find_library(OPEN_SPIEL_LIB open_spiel PATHS /home/swkang/Spiel_SPARTA/open_spiel/build)
+
+# 빌드할 파일 설정
+file(GLOB_RECURSE SOURCES 
+    # "csrc/*.cc" 
+    "csrc/tiny_hanabi_test.cc" 
+    # "../open_spiel/open_spiel/games/tiny_hanabi/*.cc"
+)
+
+# OpenSpiel의 include 디렉토리 추가 (필요시)
+# include_directories(${OpenSpiel_INCLUDE_DIRS})
+
+# 실행 파일 생성
+add_executable(Hanabi_SPARTA ${SOURCES} csrc/tiny_hanabi_test.cc)
+
+# 라이브러리 링크 (OpenSpiel, Boost, Abseil 및 zlib)
+target_link_libraries(Hanabi_SPARTA 
+    # OpenSpiel::open_spiel
+    # ${ABSL_LIBS}
+    z 
+    Boost::fiber 
+    Boost::thread 
+    Boost::context
+    # ${ABSL_BASE}
+    # ${ABSL_SYNCHRONIZATION}
+    # ${ABSL_HASH}
+    # ${OPEN_SPIEL_LIB}/libopen_spiel.so
+    ${ABSEIL_CPP_LIB_DIR}/strings/libabsl_strings.a
+    ${ABSEIL_CPP_LIB_DIR}/base/libabsl_base.a
+    ${ABSEIL_CPP_LIB_DIR}/synchronization/libabsl_synchronization.a
+    -L/home/swkang/Spiel_SPARTA/open_spiel/build  # OpenSpiel 라이브러리가 있는 디렉토리 경로
+    -lopen_spiel                                  # OpenSpiel 라이브러리 (libopen_spiel.so)
+)
+
+target_include_directories(Hanabi_SPARTA PRIVATE 
+    /home/swkang/Spiel_SPARTA/open_spiel/open_spiel
+    /home/swkang/Spiel_SPARTA/open_spiel/build/abseil-cpp
+)
+
+

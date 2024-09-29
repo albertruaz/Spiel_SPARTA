@@ -13,7 +13,7 @@
 #include <random>
 #include <vector>
 #include <tuple>
-#include "ThreadPool.h"
+// #include "ThreadPool.h"
 #include <future>
 
 
@@ -63,13 +63,13 @@ namespace Hanabi {
 
 namespace Hanabi {
 
-inline ThreadPool &getThreadPool() {
-  static std::shared_ptr<ThreadPool> pool;
-  if (!pool || pool->stop) {
-    pool.reset(new ThreadPool(HanabiParams::FIBER_THREADS));
-  }
-  return *pool;
-}
+// inline ThreadPool &getThreadPool() {
+//   static std::shared_ptr<ThreadPool> pool;
+//   if (!pool || pool->stop) {
+//     pool.reset(new ThreadPool(HanabiParams::FIBER_THREADS));
+//   }
+//   return *pool;
+// }
 
 class ServerError : public std::runtime_error {
 public:

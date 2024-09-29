@@ -14,7 +14,92 @@
 
 using namespace Hanabi;
 
-// Removed GUI code
+
+////////////////////////////////////////////////////////////////////////////////
+// GUI code
+////////////////////////////////////////////////////////////////////////////////
+
+std::string cur_botname;
+std::tuple<std::shared_ptr<Server>, PyBot*, std::thread> start_game(std::string botname, int seed) {
+  cur_botname = botname;
+  std::vector<Bot*> players(2);
+  auto gui_player = Params::getParameterInt("GUI_PLAYER", 0);
+  if (seed < 0) {
+      std::srand(std::time(NULL));
+      seed = std::rand();
+  }
+  auto botFactory = getBotFactory(botname);
+  auto partner = botFactory->create(1 - gui_player, 2, 5);
+  partner->setPermissive(true);
+  auto pybot = new PyBot(gui_player, 2, 5);
+  players[gui_player] = pybot;
+  players[1 - gui_player] = partner;
+
+  auto server = std::make_shared<Server>();
+  server->setLog(&std::cerr);
+  server->srand(seed);
+  std::thread thread(
+    [server, players, pybot](){ server->runGame(players, std::vector<Card>()); if (!pybot->gameOver_) pybot->wakeUp(); }
+  );
+  thread.detach();
+  pybot->wait();
+  return std::make_tuple(server, pybot, std::move(thread)); //return std::tie(server, pybot);
+}
+
+void end_game(Server &server, PyBot *bot, std::thread &t) {
+  while (!server.gameOver()) {
+    server.endGameByBombingOut();
+    bot->wait();
+  }
+  getThreadPool().close();
+  // t.join();
+}
+
+std::string get_botname() {
+  return cur_botname;
+}
+
+float get_search_thresh() {
+  return SearchBotParams::SEARCH_THRESH;
+}
+
+void set_search_thresh(float thresh) {
+  std::cerr << "Set SEARCH_THRESH to " << thresh << std::endl;
+  SearchBotParams::SEARCH_THRESH = thresh;
+}
+
+
+std::vector<int> server_piles(const Server &server) {
+  std::vector<int> piles;
+  for (Color c = RED; c < NUMCOLORS; c++) {
+    piles.push_back(server.pileOf(c).size());
+  }
+  return piles;
+}
+
+std::vector<int> pybot_indices(const PyBot &pybot) {
+  std::vector<int> res;
+  for (int i = 0; i < 5; i++) {
+    if (pybot.indices_.contains(i)) res.push_back(i);
+  }
+  return res;
+}
+
+typedef std::array<std::array<int, 25>, 5> CardKnowledge;
+std::vector<CardKnowledge> pybot_get_card_knowledge(const PyBot &pybot) {
+  std::vector<CardKnowledge> knols;
+  for (auto &fb : pybot.beliefs_) {
+    CardKnowledge knol;
+    for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 25; j++) {
+        knol[i][j] = fb.counts[i].get(j) ? 1 : 0;
+      }
+    }
+    knols.push_back(knol);
+  }
+  return knols;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Test harness code
