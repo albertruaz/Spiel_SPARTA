@@ -518,7 +518,7 @@ void FactorizedBeliefs::log() {
    }
    std::cerr << now() << "applyToAll begin : " << hand_distribution.size() << " hands." << std::endl;
    auto hand_dist_keys = copyKeys(hand_distribution);
-   std::vector<boost::fibers::future<void>> futures;
+   std::vector<std::future<void>> futures;
    for (int t = 0; t < NUM_THREADS; t++) {
      futures.push_back(getThreadPool().enqueue([&, t]() {
        auto simulserver = std::make_shared<SimulServer>(*this);

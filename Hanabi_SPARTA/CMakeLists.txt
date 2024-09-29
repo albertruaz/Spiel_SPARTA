@@ -24,11 +24,11 @@ link_directories(
 
 # 빌드 타겟 설정
 add_executable(tiny_hanabi_test_build 
-    ./csrc/tiny_hanabi_test.cc
+    # ./csrc/tiny_hanabi_test.cc
     ./csrc/extensiontiny.cc
     ./csrc/HanabiServer.cc
     # ./csrc/BotUtils.cc
-    # ./csrc/SimpleBot.cc
+    ./csrc/SimpleBot.cc
     # ./csrc/SearchBot.cc
     # ./csrc/JointSearchBot.cc
 )

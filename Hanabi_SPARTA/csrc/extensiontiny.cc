@@ -40,29 +40,23 @@ static void dump_stats(std::string botname, Statistics stats)
     }
 }
 
-void eval_bot(
-  std::string botname,
-  int players,
-  int games,
-  int log_every,
-  int seed
-) {
-    // special case slurm runs
-    if (seed < 0 && std::getenv("SLURM_PROCID")) {
-      // CAREFUL! make sure this doesn't wrap around and become negative
-      seed = (std::stol(std::getenv("SLURM_JOBID")) + std::stol(std::getenv("SLURM_PROCID")) * 102797) % 1000000000;
-      printf("Set seed from slurm to %d\n", seed);
-    }
-    if (seed <= 0) {
-        std::srand(std::time(NULL));
-        seed = std::rand();
-    }
-    printf("--seed %d\n", seed);
+void eval_bot() {
+
+    std::string botname = "SimpleBot";
+    int players = 2;
+    int games = 100;
+    int log_every = 100;
+    int seed = 100;
+    // if (seed <= 0) {
+    //     std::srand(std::time(NULL));
+    //     seed = std::rand();
+    // }
 
     Statistics stats = {};
 
     Hanabi::Server server;
-    server.setLog(&std::cerr);
+    server.setLog(&std::cerr); // Print Error
+    
     auto botFactory = getBotFactory(botname);
 
     server.srand(seed);
@@ -87,4 +81,8 @@ void eval_bot(
     // Hanabi::getThreadPool().close();
 }
 
+int main(){
+    eval_bot();
+    return 0;
+}
 
